@@ -9,10 +9,6 @@ Platforms like nRF9160 Feather require nRF Connect SDK to make use of their dist
 
 ### Install West
 
-West is the Zephyr "meta tool" that will allow you to build firmware, install packages, and flash firmware. There are various dependencies required, depending upon your operating system (OS), because west is Python based.
-
-*Choose your OS from the tabs below*
-
 import SetupZephyr from '../../partials/setup-zephyr.md'
 
 <SetupZephyr/>
@@ -24,6 +20,15 @@ import InstallNRFSDK from '../../partials/install-nrf91-sdk.md'
 <InstallNRFSDK/>
 
 ### Install nRF91 Toolchain (ARM)
+
+You need to install the Zephyr SDK. The SDK contains the various toolchains that Zephyr will call in order to build the firmware image you will load onto the nRF91. 
+
+import InstallNRF91Toolchain from '../../partials/install-nrf91-toolchain.md'
+
+<InstallNRF91Toolchain/>
+
+### Next steps
+
 
 Your system is all set up and ready to start building & flashing with Zephyr. Verify by building a minimal sample, in this case for the CircuitDojo nRF91 feather:
 
