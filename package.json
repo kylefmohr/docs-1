@@ -12,7 +12,8 @@
     "fb-deploy-dev": "npm run build:dev && firebase deploy --only hosting:docs-dev",
     "fb-deploy-prod": "npm run build:prod && firebase deploy --only hosting:docs-prod",
     "serve": "docusaurus serve",
-    "update-external-docs": "./scripts/update_external_docs.sh",
+    "sync:docs": "./scripts/update_external_docs.sh",
+    "sync:catalog": "node ./scripts/catalog.js",
     "clear": "docusaurus clear"
   },
   "dependencies": {

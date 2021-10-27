@@ -1,0 +1,69 @@
+export const SampleTable = ({ sample }) => {
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>Board</th>
+          <th>Overlays</th>
+        </tr>
+      </thead>
+      <tbody>
+        {sample.boards.map((board) => {
+          return (
+            <tr>
+              <td>
+                <a href={`/firmware/zephyr-sdk/samples/${sample.name}`}>
+                  {board.name}
+                </a>
+              </td>
+              <td>
+                {board.overlays.map((overlay) => (
+                  <a
+                    href={`https://github.com/golioth/zephyr-sdk/blob/main/samples/lightdb_stream/boards/${overlay}.overlay`}
+                  >
+                    {overlay}
+                  </a>
+                ))}
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
+};
+
+export const SamplesTable = () => {
+  const samples = require("./assets/samples.json");
+  const [selectedSample, setSelectedSample] = React.useState(samples[0].name);
+  return (
+    <div>
+      <h2>Samples</h2>
+      <select
+        value={selectedSample}
+        onChange={(e) => setSelectedSample(e.target.value)}
+      >
+        <option value="all">all samples</option>
+        {samples.map((sample) => (
+          <option value={sample.name}>{sample.name} sample</option>
+        ))}
+      </select>
+      {samples
+        .filter((s) => s.name === selectedSample || selectedSample === "all")
+        .map((sample) => {
+          return (
+            <div>
+              <h2>
+                <a href={`/firmware/zephyr-sdk/samples/${sample.name}`}>
+                  {sample.name} sample
+                </a>
+              </h2>
+              <SampleTable sample={sample} />
+            </div>
+          );
+        })}
+    </div>
+  );
+};
+
+<SamplesTable />

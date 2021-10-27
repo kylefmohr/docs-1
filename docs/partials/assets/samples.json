@@ -1,0 +1,257 @@
+[
+  {
+    "name": "dfu",
+    "boards": [
+      {
+        "name": "circuitdojo_feather_nrf9160ns",
+        "overlays": []
+      },
+      {
+        "name": "nrf52840dk_nrf52840",
+        "overlays": [
+          "nrf52840dk_nrf52840"
+        ]
+      },
+      {
+        "name": "nrf9160dk_nrf9160_ns",
+        "overlays": []
+      }
+    ]
+  },
+  {
+    "name": "hello",
+    "boards": [
+      {
+        "name": "circuitdojo_feather_nrf9160ns",
+        "overlays": []
+      },
+      {
+        "name": "esp32",
+        "overlays": []
+      },
+      {
+        "name": "nrf52840dk_nrf52840",
+        "overlays": [
+          "nrf52840dk_nrf52840"
+        ]
+      },
+      {
+        "name": "nrf9160dk_nrf9160_ns",
+        "overlays": []
+      },
+      {
+        "name": "qemu_cortex_m3",
+        "overlays": []
+      },
+      {
+        "name": "qemu_x86",
+        "overlays": []
+      }
+    ]
+  },
+  {
+    "name": "lightdb/get",
+    "boards": [
+      {
+        "name": "circuitdojo_feather_nrf9160ns",
+        "overlays": []
+      },
+      {
+        "name": "esp32",
+        "overlays": []
+      },
+      {
+        "name": "nrf52840dk_nrf52840",
+        "overlays": [
+          "nrf52840dk_nrf52840"
+        ]
+      },
+      {
+        "name": "nrf9160dk_nrf9160_ns",
+        "overlays": []
+      },
+      {
+        "name": "qemu_cortex_m3",
+        "overlays": []
+      },
+      {
+        "name": "qemu_x86",
+        "overlays": []
+      }
+    ]
+  },
+  {
+    "name": "lightdb/observe",
+    "boards": [
+      {
+        "name": "circuitdojo_feather_nrf9160ns",
+        "overlays": []
+      },
+      {
+        "name": "esp32",
+        "overlays": []
+      },
+      {
+        "name": "nrf52840dk_nrf52840",
+        "overlays": [
+          "nrf52840dk_nrf52840"
+        ]
+      },
+      {
+        "name": "nrf9160dk_nrf9160_ns",
+        "overlays": []
+      },
+      {
+        "name": "qemu_cortex_m3",
+        "overlays": []
+      },
+      {
+        "name": "qemu_x86",
+        "overlays": []
+      }
+    ]
+  },
+  {
+    "name": "lightdb/set",
+    "boards": [
+      {
+        "name": "circuitdojo_feather_nrf9160ns",
+        "overlays": []
+      },
+      {
+        "name": "esp32",
+        "overlays": []
+      },
+      {
+        "name": "nrf52840dk_nrf52840",
+        "overlays": [
+          "nrf52840dk_nrf52840"
+        ]
+      },
+      {
+        "name": "nrf9160dk_nrf9160_ns",
+        "overlays": []
+      },
+      {
+        "name": "qemu_cortex_m3",
+        "overlays": []
+      },
+      {
+        "name": "qemu_x86",
+        "overlays": []
+      }
+    ]
+  },
+  {
+    "name": "lightdb_led",
+    "boards": [
+      {
+        "name": "circuitdojo_feather_nrf9160ns",
+        "overlays": []
+      },
+      {
+        "name": "esp32",
+        "overlays": []
+      },
+      {
+        "name": "nrf52840dk_nrf52840",
+        "overlays": [
+          "nrf52840dk_nrf52840"
+        ]
+      },
+      {
+        "name": "nrf9160dk_nrf9160_ns",
+        "overlays": []
+      },
+      {
+        "name": "qemu_cortex_m3",
+        "overlays": []
+      },
+      {
+        "name": "qemu_x86",
+        "overlays": []
+      }
+    ]
+  },
+  {
+    "name": "lightdb_stream",
+    "boards": [
+      {
+        "name": "circuitdojo_feather_nrf9160ns",
+        "overlays": []
+      },
+      {
+        "name": "esp32",
+        "overlays": []
+      },
+      {
+        "name": "nrf52840dk_nrf52840",
+        "overlays": [
+          "nrf52840dk_nrf52840"
+        ]
+      },
+      {
+        "name": "nrf9160dk_nrf9160_ns",
+        "overlays": []
+      },
+      {
+        "name": "qemu_cortex_m3",
+        "overlays": []
+      },
+      {
+        "name": "qemu_x86",
+        "overlays": []
+      }
+    ]
+  },
+  {
+    "name": "logging",
+    "boards": [
+      {
+        "name": "circuitdojo_feather_nrf9160ns",
+        "overlays": []
+      },
+      {
+        "name": "esp32",
+        "overlays": []
+      },
+      {
+        "name": "nrf52840dk_nrf52840",
+        "overlays": [
+          "nrf52840dk_nrf52840"
+        ]
+      },
+      {
+        "name": "nrf9160dk_nrf9160_ns",
+        "overlays": []
+      },
+      {
+        "name": "qemu_cortex_m3",
+        "overlays": []
+      },
+      {
+        "name": "qemu_x86",
+        "overlays": []
+      }
+    ]
+  },
+  {
+    "name": "settings",
+    "boards": [
+      {
+        "name": "circuitdojo_feather_nrf9160ns",
+        "overlays": []
+      },
+      {
+        "name": "nrf52840dk_nrf52840",
+        "overlays": [
+          "nrf52840dk_nrf52840"
+        ]
+      },
+      {
+        "name": "nrf9160dk_nrf9160_ns",
+        "overlays": []
+      }
+    ]
+  }
+]
