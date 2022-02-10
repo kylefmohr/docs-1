@@ -5,7 +5,7 @@ title: Flash via USB Bootloader
 
 ## Installing Tools
 
-Flashing via USB bootloader requires the `newtmgr` tool.
+Flashing via USB bootloader requires the `mcumgr` tool.
 
 ### Prerequisite: add yourself to the `dialout` user group
 
@@ -23,9 +23,7 @@ $ sudo adduser $USER dialout
 # (restarting the terminal is not enough)
 ```
 
-### Installing Newt Manager (for bootloading)
-
-We recommend you use [Jared Wolff's fork of newtmgr](https://github.com/circuitdojo/mynewt-newtmgr) which includes customization for higher-speed transfers on MCUboot implementations that support it. This tool depends on the Go language so we will also install that.
+### Installing MCU Manager (for bootloading)
 
 1. Install the Go Language
 
@@ -54,15 +52,15 @@ We recommend you use [Jared Wolff's fork of newtmgr](https://github.com/circuitd
     source ~/.profile
     ```
 
-2. Install Newt Manager (newtmgr)
+2. Install MCU Manager (mcumgr)
 
     ```bash
-    mkdir -p $GOPATH/src/mynewt.apache.org/newtmgr
-    git clone https://github.com/circuitdojo/mynewt-newtmgr.git $GOPATH/src/mynewt.apache.org/newtmgr
-    cd $GOPATH/src/mynewt.apache.org/newtmgr/newtmgr
-    GO111MODULE=on go build
-    go install
+    go get github.com/apache/mynewt-mcumgr-cli/mcumgr
     ```
+
+    :::note
+    If you are working with the Circuit Dojo nRF9160 Feather you may want to use [Jared Wolff's fork of newtmgr](https://github.com/circuitdojo/mynewt-newtmgr) instead of `mcumgr`. His fork includes customization for higher-speed transfers on the Feather's MCUboot bootloader.
+    :::
 
 ## Flashing Firmware
 
@@ -106,13 +104,13 @@ We'll use Zephyr's default blinky project as an example:
     * **Circuit Dojo nRF9160 Feather:** Hold down the user button and click the RST button. Keep holding the user button until the blue light comes on
     * **Thingy:91:** Remove the orange case. Hold down the button in the middle of the device and cycle the on/off switch located next to the USB (this hardware lacks a reset button and there is an onboard battery)
 
-2. Use `newtmgr` to flash the firmware.
+2. Use `mcumgr` to flash the firmware.
 
     ```bash
     #Flashing example for Circuit Dojo nRF9160 Feather
-    newtmgr --conntype=serial --connstring='dev=/dev/ttyUSB0,baud=1000000' image upload build/zephyr/app_update.bin
+    mcumgr --conntype=serial --connstring='dev=/dev/ttyUSB0,baud=1000000' image upload build/zephyr/app_update.bin
     #Flashing example for Thingy:91
-    newtmgr --conntype=serial --connstring='dev=/dev/ttyACM0,baud=115200' image upload build/zephyr/app_update.bin
+    mcumgr --conntype=serial --connstring='dev=/dev/ttyACM0,baud=115200' image upload build/zephyr/app_update.bin
     ```
 
 3. Reset the device to run the newly flashed binary
@@ -120,27 +118,27 @@ We'll use Zephyr's default blinky project as an example:
     If the device has a reset button it can be used to exit DFU mode and run the new binary. You may also use the flashing tool to reset the device:
 
     ```bash
-    newtmgr --conntype=serial --connstring='dev=/dev/ttyACM0,baud=115200' reset
+    mcumgr --conntype=serial --connstring='dev=/dev/ttyACM0,baud=115200' reset
     ```
 
 ### Easier MCUboot flashing
 
-Complexity can be reduced when using `newtmgr` by adding profiles that store the connection settings.
+Complexity can be reduced when using `mcumgr` by adding profiles that store the connection settings.
 
-1. Add a `newtmgr` profile for your target
+1. Add a `mcumgr` profile for your target
 
     ```bash
     #Profile for the Circuit Dojo nrF9160 Feather
-    newtmgr conn add feather type=serial connstring='dev=/dev/ttyUSB0,baud=1000000'
+    mcumgr conn add feather type=serial connstring='dev=/dev/ttyUSB0,baud=1000000'
     #Profile for the Thingy:91
-    newtmgr conn add thingy91 type=serial connstring='dev=/dev/ttyACM0,baud=115200'
+    mcumgr conn add thingy91 type=serial connstring='dev=/dev/ttyACM0,baud=115200'
     ```
 
 2. In the future, just use the profile name when flashing:
 
     ```bash
     #Profile for the Circuit Dojo nrF9160 Feather
-    newtmgr -c feather image upload build/zephyr/app_update.bin
+    mcumgr -c feather image upload build/zephyr/app_update.bin
     #Profile for the Thingy:91
-    newtmgr -c thingy91 image upload build/zephyr/app_update.bin
+    mcumgr -c thingy91 image upload build/zephyr/app_update.bin
     ```
